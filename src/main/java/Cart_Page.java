@@ -1,6 +1,10 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Cart_Page extends Page_Utils{
     public Cart_Page(WebDriver driver) {
@@ -15,10 +19,24 @@ public class Cart_Page extends Page_Utils{
     protected final By ShippingRadioBtn=By.id("s_method_flatrate_flatrate");
     protected final By updateTotalBtn=By.name("do");
     protected final By grandTotal=By.cssSelector(".a-right>strong>.price");
+    private final By productQty=By.cssSelector("input[title='Qty']");
+    private final By updateBtn=By.cssSelector(".button.btn-update");
+
+    public void clickUpdateBtn()
+    {
+        wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(updateBtn));
+        clickOn(this.updateBtn);
+    }
     public void selectFromState(String Value)
     {
         select=new Select(driver.findElement(this.statDropDown));
         select.selectByVisibleText(Value);
+    }
+    public void enterQty(int Qty)
+    {
+        clickOn(productQty);
+        EnterText(productQty, ((Integer)Qty).toString());
     }
     public void enterZipCodeValue(String ZipCode)
     {

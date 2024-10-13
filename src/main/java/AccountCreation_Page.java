@@ -1,6 +1,5 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class AccountCreation_Page extends Page_Utils {
     private final By firstNameField = By.id("firstname");
@@ -16,8 +15,9 @@ public class AccountCreation_Page extends Page_Utils {
     private final By logInEmailField = By.id("email");
     private final By logInPassField = By.id("pass");
     private final By loginBtn = By.id("send2");
-    private final By myWishListLink = By.linkText("My Wishlist");
+    //private final By myWishListLink = By.linkText("My Wishlist");
     private String leftList="//div[@class='block-content']/ul/li/a[text()='%s']";
+    protected By reOrderBtn= By.className("link-reorder");
 
     public AccountCreation_Page(WebDriver driver) {
         super(driver);
@@ -60,9 +60,9 @@ public class AccountCreation_Page extends Page_Utils {
     public void enterLogInPassword(String pass) {
         EnterText(this.logInPassField, pass);
     }
-    public void clickOnMyWishListLink() {
-        driver.findElement(By.xpath("//div[@class='block-content']/ul/li/a[text()='My Wishlist']")).click();
-    }
+//    public void clickOnMyWishListLink() {
+//        driver.findElement(By.xpath("//div[@class='block-content']/ul/li/a[text()='My Wishlist']")).click();
+//    }
 
     public void selectFromLeftList(String list)
     {

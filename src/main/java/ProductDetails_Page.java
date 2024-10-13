@@ -1,6 +1,5 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,7 +11,7 @@ public class ProductDetails_Page extends Page_Utils{
     }
 
     private WebDriverWait wait;
-    private final By productPrice=By.className("price");
+    private final By productPrice=By.className(".price");
     private final By productQty=By.cssSelector("input[title='Qty']");
     private final By AddToCartBtn=By.cssSelector(".button.btn-cart");
     private final By errorMsg=By.className("error-msg");
