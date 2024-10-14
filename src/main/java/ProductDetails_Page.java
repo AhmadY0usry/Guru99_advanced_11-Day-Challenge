@@ -11,7 +11,7 @@ public class ProductDetails_Page extends Page_Utils{
     }
 
     private WebDriverWait wait;
-    private final By productPrice=By.className(".price");
+    private final By productPrice=By.className("price");
     private final By productQty=By.cssSelector("input[title='Qty']");
     private final By AddToCartBtn=By.cssSelector(".button.btn-cart");
     private final By errorMsg=By.className("error-msg");
@@ -19,6 +19,10 @@ public class ProductDetails_Page extends Page_Utils{
     private final By emptyCartBtn=By.id("empty_cart_button");
     private final By CartErrorMsg=By.className("page-title");
     private final By noItemStg=By.className("cart-empty");
+    protected final By couponCodes= By.id("coupon_code");
+    protected final By applyCouponBtn= By.cssSelector(".button-wrapper .button2[value='Apply']");
+    protected final By successMsg= By.className("success-msg");
+
 
 
 

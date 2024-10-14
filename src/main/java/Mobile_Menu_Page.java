@@ -68,9 +68,16 @@ public class Mobile_Menu_Page extends Page_Utils{
         productCompareBtn =By.cssSelector(CssSelector);
         clickOn(this.productCompareBtn);
     }
+    public void clickOnAddToCartBtn(String productName)
+    {
+        CssSelector=String.format(".item.last:has(.product-name a[title='%s']) .button.btn-cart",productName);
+        productCompareBtn =By.cssSelector(CssSelector);
+        clickOn(this.productCompareBtn);
+    }
 
     public void clickCompareBetweenProducts()
     {
         clickOn(this.compareBtn);
     }
+
 }
