@@ -13,20 +13,18 @@ public class TestCaseDay6 extends Test_Base {
     @Test(dataProvider = "User Data",dependsOnMethods = "TestCaseDay5.Test_Scenario5")
     public void Test_Scenario_6(Object userMail, Object userPass, Object NotUsed) {
         // Login
-        Home_Page homePage = new Home_Page(driver);
         homePage.clickOnAccount();
         homePage.selectLogIn();
         //Login with user credentials
-        AccountCreation_Page accountCreationPage = new AccountCreation_Page(driver);
         accountCreationPage.enterLogInEmail(userMail.toString());
         accountCreationPage.enterLogInPassword(userPass.toString());
         accountCreationPage.clickOnLoginBtn();
         // Click on My wish list
         accountCreationPage.selectFromLeftList("My Wishlist");
         // Add to cart
-        MyWishList_Page myWishListPage = new MyWishList_Page(driver);
+
         myWishListPage.clickOnAddToCartBtnFromWishListPage();
-        Cart_Page cartPage = new Cart_Page(driver);
+
         //enter shipping info
         cartPage.selectFromState("New York");
         cartPage.enterZipCodeValue("542896");
@@ -46,7 +44,7 @@ public class TestCaseDay6 extends Test_Base {
         Assert.assertEquals(currentGrandTotal, grandTotalAfter);
         // Click on proceed to check out
         cartPage.clickOn(cartPage.proceedToCheckout);
-        CheckOut_Page checkOutPage = new CheckOut_Page(driver);
+
         // Enter address in checkout page
         checkOutPage.EnterText(checkOutPage.addressField, "ABC");
         // Enter City in city  checkout page

@@ -20,18 +20,15 @@ public class TestCaseDay7 extends Test_Base{
     @Test(dataProvider = "User Data")
     public void TestScenario_7(Object user_email, Object user_password, Object OrderId) {
         // Login
-
-        Home_Page homePage = new Home_Page(driver);
         homePage.clickOnAccount();
         homePage.selectLogIn();
         //Login with user credentials
 
-        AccountCreation_Page accountCreationPage = new AccountCreation_Page(driver);
         accountCreationPage.enterLogInEmail(user_email.toString());
         accountCreationPage.enterLogInPassword(user_password.toString());
         accountCreationPage.clickOnLoginBtn();
         accountCreationPage.selectFromLeftList("My Orders");
-        MyOrders_Page myOrdersPage = new MyOrders_Page(driver);
+
         String orderNumber = myOrdersPage.getText(myOrdersPage.orderNum);
         String orderStatus = myOrdersPage.getText(myOrdersPage.orderStatus);
         Assert.assertEquals(orderNumber, OrderId);

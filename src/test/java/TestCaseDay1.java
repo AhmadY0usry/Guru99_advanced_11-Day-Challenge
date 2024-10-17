@@ -6,12 +6,11 @@ public class TestCaseDay1 extends Test_Base{
     @Test
     public void Test_Scenario_1() // Verify the sorting function
     {
-        Home_Page homePage = new Home_Page(driver);
         // Verify page contain THIS IS  DEMO SITE
         Assert.assertTrue(homePage.getPageTitle().contains("THIS IS DEMO SITE"));
         // Click on Mobile Menu
         homePage.clickOnMobileMenu();
-        Mobile_Menu_Page mobileMenuPage = new Mobile_Menu_Page(driver);
+
         // Get page title text value
         mobileMenuPage.getPageTitle();
         // Sort the result by name

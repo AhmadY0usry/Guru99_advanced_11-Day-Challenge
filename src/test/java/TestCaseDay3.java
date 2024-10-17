@@ -8,16 +8,13 @@ public class TestCaseDay3 extends Test_Base{
     public void Test_Scenario3() // Verify that you cannot add more product in cart than the product available in the store
     {
 
-        Home_Page homePage = new Home_Page(driver);
         // Click on Mobile Menu
         homePage.clickOnMobileMenu();
-        Mobile_Menu_Page mobileMenuPage = new Mobile_Menu_Page(driver);
         // Get page title text value
         mobileMenuPage.getPageTitle();
         // Go to product details
         mobileMenuPage.clickOnXperia();
         // Click on add to cart button
-        ProductDetails_Page productDetailsPage = new ProductDetails_Page(driver);
         productDetailsPage.clickAddToCartBtn();
         // Enter a new quantity more than stock
         productDetailsPage.enterQty(1000);

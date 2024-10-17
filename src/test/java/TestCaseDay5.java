@@ -15,12 +15,10 @@ public class TestCaseDay5 extends Test_Base{
     @Test(dataProvider = "New User DataProvider", testName = "New User Creation")
     public void Test_Scenario5(Object fName, Object mName, Object lName, Object email, Object password, Object msg) {
         //1- Create a new user
-        Home_Page homePage = new Home_Page(driver);
         homePage.clickOnAccount();
         homePage.selectMyAccount();
-        MyAccount_Page myAccountPage = new MyAccount_Page(driver);
+
         myAccountPage.clickOnCreateAnAccount();
-        AccountCreation_Page accountCreationPage = new AccountCreation_Page(driver);
         // Enter User data
         String UserMail=email.toString();
         String UserPass=password.toString();
@@ -30,9 +28,8 @@ public class TestCaseDay5 extends Test_Base{
         Assert.assertEquals(accountCreationPage.getRegistrationSuccessMsg(), "Thank you for registering with Main Website Store.");
         //2- Add product to wishList
         accountCreationPage.clickOnTv();
-        TVMenu_Page tvMenuPage = new TVMenu_Page(driver);
         tvMenuPage.addToWishList("LG LCD");
-        MyWishList_Page myWishListPage = new MyWishList_Page(driver);
+
         myWishListPage.clickOnShareWishListBtn();
         myWishListPage.enterDataInMailField(email.toString());
         myWishListPage.enterDataInMsgField(msg.toString());

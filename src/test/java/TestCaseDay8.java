@@ -16,11 +16,10 @@ public class TestCaseDay8 extends Test_Base{
     @Test(dataProvider = "User Data")
     public void Test_Scenario_8(Object user_email, Object user_password,Object Order)
     {
-        Home_Page homePage = new Home_Page(driver);
         homePage.clickOnAccount();
         homePage.selectLogIn();
         //Login with user credentials
-        AccountCreation_Page accountCreationPage = new AccountCreation_Page(driver);
+
         accountCreationPage.enterLogInEmail(user_email.toString());
         accountCreationPage.enterLogInPassword(user_password.toString());
         accountCreationPage.clickOnLoginBtn();
@@ -29,7 +28,6 @@ public class TestCaseDay8 extends Test_Base{
         // Click on reorder for the displayed product
         accountCreationPage.clickOn(accountCreationPage.reOrderBtn);
         // Verifying the grand total is updated after updating the quantity
-        Cart_Page cartPage=new Cart_Page(driver);
         String totalPriceBeforeUpdate=cartPage.getText(cartPage.grandTotal);
         cartPage.enterQty(10);
         cartPage.clickUpdateBtn();
